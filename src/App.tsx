@@ -1,87 +1,112 @@
-import { type TJob } from "./components/Job";
-import { Job } from "./components/Job";
-import { List } from "./components/List";
-import experienceData from "./data/experience.csv?raw";
-import { parse } from "csv-parse/browser/esm/sync";
+import { Subtitle } from './components/Subtitle';
+import { Job, type Job as JobType } from './components/Job';
+import { Section } from './components/Section';
+import { List } from './components/List';
+import { TimelineEvent } from './components/Timeline';
+import { FontPicker } from './components/FontPicker';
+import experienceData from './data/experience.json';
+import profileImage from './assets/profile.jpg';
 
-function Section({
-  title,
-  children,
-}: {
-  title: React.ReactNode;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="">
-      <h2 className="text-2xl font-bold pt-6">{title}</h2>
-      {children}
-    </section>
-  );
-}
+const EXPERIENCE_LIMIT = 5;
 
 function App() {
-  const experience: TJob[] = parse(experienceData, { columns: true });
+  const experience: JobType[] = experienceData.slice(0, EXPERIENCE_LIMIT);
 
   return (
-    <article className="container max-w-prose mx-auto px-4 py-4">
-      <header className="pt-8">
-        <h1 className="text-3xl font-bold">Christian Naths</h1>
-        <p>Senior Software Developer</p>
-        <List
-          className="text-sm pt-2"
-          items={[
-            <a href="mailto:christiannaths@gmail.com">
-              christiannaths@gmail.com
-            </a>,
-            <a href="https://www.linkedin.com/in/christiannaths">
-              https://www.linkedin.com/in/christiannaths
-            </a>,
-            <a href="tel:+50230834103">+502 3083-4103</a>,
-            "Timezone: UTC-6 (+/- 2hrs)",
-          ]}
-        ></List>
-      </header>
-      <Section title="Summary">
-        <p className="pt-2">
-          I began working professionally in web and software design &
-          development in 2001. Since 2015 I have maintained a full-time, focused
-          effort towards helping founders of early-stage startups bring their
-          product ideas to market.
-        </p>
+    <FontPicker className="print:hidden">
+      {font => (
+        <article
+          className={`container w-[8.5in] mx-auto px-4 py-4 text-md print:text-sm ${font} text-slate-800`}
+        >
+          <header className="pt-8 grid grid-cols-8 mb-8 gap-8">
+            <div className="text-center col-span-2">
+              <img
+                className="w-40 h-40 rounded-full inline-block scale-x-100 print:scale-y-[0.95]"
+                src={profileImage}
+                alt="Christian Naths"
+              />
+            </div>
+            <div className="col-span-6">
+              <h1 className="text-3xl font-bold">Christian Naths</h1>
+              <Subtitle className="text-lg">Senior Software Developer</Subtitle>
 
-        <p className="pt-2">
-          I also fit very well into productive and cooperative development teams
-          as a senior developer or dev lead. I take pride in writing
-          maintainable code and providing thorough and helpful code reviews to
-          keep team efforts on track and in-line with company business
-          objectives.
-        </p>
-      </Section>
-      <Section title="Skills">
-        <p className="pt-2">
-          Typescript, React, Next.js, Jest, NodeJS, Python, Ruby, PostgreSQL,
-          NoSQL, Big Query, Databricks, Kubernetes, Google Cloud
-        </p>
-      </Section>
-      <Section title="Experience">
-        {experience.map((job: TJob, index: number) => (
-          <Job key={index} {...job} />
-        ))}
-      </Section>
-      <Section title="Education">
-        <h3 className="text-lg font-bold pt-4 underline">
-          Digital Media Design
-        </h3>
-        <List
-          items={[
-            <span>
-              <b>Northern Alberta Institute of Technology</b> · Diploma
-            </span>,
-            <span>2007 - 2009</span>,
-          ]}
-        />
-      </Section>
-    </article>
+              <p className="mt-2">
+                I began working professionally in web and software design & development
+                in 2001. Since 2015 I have focused my efforts towards helping founders
+                of early-stage startups bring their product ideas to market.
+              </p>
+
+              <p className="mt-2">
+                I take pride in writing maintainable code and providing thorough and
+                helpful code reviews to keep team efforts on track and in-line with
+                company business objectives.
+              </p>
+
+              <div className="text-sm mt-3 text-gray-700 grid grid-cols-[max-content,auto] gap-x-4">
+                <div>
+                  <a href="mailto:christiannaths@gmail.com">christiannaths@gmail.com</a>
+                </div>
+                <div>
+                  <a href="https://github.com/christiannaths">
+                    github.com/christiannaths
+                  </a>
+                </div>
+                <div>
+                  <span>Timezone: UTC-6 (+/- 2hrs)</span>
+                </div>
+                <div>
+                  <a href="https://www.linkedin.com/in/christiannaths">
+                    linkedin.com/in/christiannaths
+                  </a>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <Section title="Skills">
+            <p className="mt-1">
+              Typescript, React, Next.js, Jest, NodeJS, Python, Ruby, PostgreSQL, NoSQL,
+              Big Query, Databricks, Kubernetes, Google Cloud
+            </p>
+          </Section>
+          <Section title="Experience">
+            <div className="mt-2">
+              {experience.map((job, index) => (
+                <TimelineEvent
+                  key={index}
+                  className="[&+*]:pt-4"
+                  event={{
+                    title: job.company,
+                    startDate: job.startDate,
+                    endDate: job.endDate,
+                  }}
+                  showDuration
+                >
+                  <Job job={job} />
+                </TimelineEvent>
+              ))}
+            </div>
+          </Section>
+          <Section title="Education">
+            <TimelineEvent
+              className="mt-2"
+              event={{
+                title: 'Northern Alberta Institute of Technology',
+                startDate: '2007-09-05',
+                endDate: '2009-04-28',
+              }}
+            >
+              <List
+                items={[
+                  <span>Digital Media Design · Diploma</span>,
+                  <span>Edmonton, Canada</span>,
+                ]}
+              />
+            </TimelineEvent>
+          </Section>
+        </article>
+      )}
+    </FontPicker>
   );
 }
 
