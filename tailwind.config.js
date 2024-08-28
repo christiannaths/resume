@@ -2,11 +2,11 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{html,ts,tsx,js,jsx}'],
   theme: {
-    extend: {
-      borderRadius: {
-        full: '50%',
-      },
-    },
+    // extend: {
+    //   borderRadius: {
+    //     full: '50%',
+    //   },
+    // },
   },
   fontSize: {
     sm: '0.75rem',

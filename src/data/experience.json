@@ -5,13 +5,13 @@
     "employmentType": "Contract",
     "startDate": "2022-09-15",
     "endDate": "2024-05-15",
-    "location": "London, United Kingdom",
+    "location": "London, UK",
     "commuteType": "Remote",
     "highlights": [
       "Contracted by PEI Group to support the acquisition of FundFilter",
-      "Integrated key FundFilter product features and data into PEI's existing infrastructure.",
-      "In November 2023 I transitioned to the Data Engineering team to migrate the existing FundFilter data ingest pipeline into Databricks.",
-      "I completed my work in May of 2024 and stepped away for some time off."
+      "Integrated key FundFilter product features and data into PEI's existing infrastructure",
+      "Migrated the existing FundFilter data ingest pipeline into Databricks",
+      "I completed my work in May of 2024 and stepped away for some time off"
     ]
   },
   {
@@ -23,10 +23,10 @@
     "location": "Bend, OR, USA",
     "commuteType": "Remote",
     "highlights": [
-      "I took the lead of development process from the previous developer and brought the company's flagship product to market.",
-      "During the process I undertook rebuild of the application layout, which dramatically improved rendering speed and animation performance.",
-      "I also completely revamped the data ingest pipeline resulting in a 12x speed improvement.",
-      "For the sale of FundFilter to PEI Group in 2022, I supported the due diligence proceedings by providing technical expertise and recommendations to both companies."
+      "Joined a small team early in the company's life cycle (1 year)",
+      "Worked closely with the founder to build a data-driven product that was acquired by PEI Group in 2022",
+      "Promoted to CTO and was responsible for all technical aspects of the company",
+      "Supported technical due diligence proceedings during the acquisition process"
     ]
   },
   {
@@ -38,20 +38,23 @@
     "location": "San Francisco, CA, USA",
     "commuteType": "Remote",
     "highlights": [
-      "In a pivotal part of a small dev team, we built a stable, long lasting product that continues to produce revenue today with little maintenance.",
-      "With clients including Eminem, Celine Dion, Alyssa Milano, and Yes Theory, built a system that could scale to millions of page views."
+      "Built a stable, long lasting product that continues to produce revenue today with little maintenance",
+      "Implemented a Kubernetes backend that scaled to millions of page views (clients including Eminem, Celine Dion, Alyssa Milano, and Yes Theory)"
     ]
   },
   {
     "company": "MicroHero Surveys",
     "title": "Chief Technology Officer",
     "employmentType": "Permanent Full-time",
-    "startDate": "2016-09-15",
+    "startDate": "2015-04-27",
     "endDate": "2018-11-15",
     "location": "Edmonton, Canada",
     "commuteType": "Hybrid Remote",
     "highlights": [
-      "I joined the three founding members of MicroHero as a minority partner a few months into product development. We built an iOS app and a companion web application which allowed users to generate micro-donations to a charity of their choosing by completing surveys. In 2016 I, along with a new partner, purchased the company from the 3 founders. Unfortunately, after a series of pivots we ultimately failed to find a market fit for the product and folded the company in late 2018."
+      "Onboarded as a minority partner a few months into product development",
+      "Built companion web application to the company's flagship mobile app",
+      "Took over the company in late 2016 and led the company through a series of pivots",
+      "Ultimately failed to find a market fit for the product and folded the company in late 2018"
     ]
   },
   {
@@ -63,7 +66,9 @@
     "location": "Edmonton, Canada",
     "commuteType": "Hybrid Remote",
     "highlights": [
-      "I joined Yardly a few short weeks after it's inception to build and lead a brand new software development team. Together we designed and built Yardly's Uber-like software platform: a suite of iOS, Android, and web applications. Working closely with the company founders, I guided and shaped the brand, business model, culture, and direction of the company."
+      "Joined Yardly a few weeks after its inception to build and lead a new software development team.",
+      "Designed and built Yardly's Uber-like software platform: a suite of iOS, Android, and web applications.",
+      "Worked closely with the company founders to guide and shape the brand, business model, culture, and direction of the company."
     ]
   },
   {

@@ -20,7 +20,7 @@ function formatDuration(startDate: string, endDate: string) {
 
   const years = Number.parseInt(durationYears, 10);
 
-  const yearsPart = years && durationYears;
+  const yearsPart = years && `${years}y`;
 
   const durationMonths = formatDistanceStrict(new Date(startDate), new Date(endDate), {
     unit: 'month',
@@ -30,7 +30,7 @@ function formatDuration(startDate: string, endDate: string) {
 
   const months = Number.parseInt(durationMonths, 10) % 12;
 
-  const monthsPart = months > 1 ? `${months} months` : months === 1 ? '1 month' : null;
+  const monthsPart = months && `${months}m`;
 
   return [yearsPart, monthsPart].filter(Boolean).join(' ');
 }
@@ -51,21 +51,17 @@ type Props = {
 function Bullet() {
   return (
     <div
-      className={`
-        relative
-        before:absolute
-        before:block
-        before:content-[""]
-        before:-translate-x-1/2
-        before:h-3
-        before:w-3
-        before:rounded-full
-        before:bg-emerald-600
-        before:top-[5.5px]
-        before:-left-6
-        before:-ml-[1px]
-        `}
-    />
+      className={[
+        'absolute',
+        '-translate-x-1/2',
+        '-translate-y-1',
+        'text-emerald-600',
+        '-left-[1px]',
+        'text-xl',
+      ].join(' ')}
+    >
+      ●
+    </div>
   );
 }
 
@@ -80,13 +76,17 @@ export function TimelineEvent({
   const duration = formatDuration(event.startDate, event.endDate);
 
   return (
-    <div className={`break-inside-avoid border-l-2 border-slate-200 pl-6 ${className}`}>
+    <div
+      className={`break-inside-avoid border-l-2 border-slate-200 pl-6 relative ${className}`}
+    >
       <Bullet />
       <span className={`text-emerald-600 font-bold`}>
         <span>
           {startDateFormatted} - {endDateFormatted}
         </span>
-        {showDuration && <span className="font-normal text-black"> ({duration})</span>}
+        {showDuration && (
+          <span className="font-normal  text-emerald-600"> ・{duration}</span>
+        )}
       </span>
 
       <h3 className="text-md font-bold ">{event.title}</h3>
