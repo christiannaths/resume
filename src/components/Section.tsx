@@ -7,7 +7,7 @@ type Props = {
 
 export function Section({ title, children }: Props) {
   return (
-    <Container as="section" className={`grid grid-cols-8 gap-8 pt-6 relative`}>
+    <Container as="section" className={`pt-6 relative`}>
       <h2 className={`text-2xl font-bold pt-1 col-span-2`}>{title}</h2>
       <div className="col-span-6">{children}</div>
     </Container>

@@ -15,13 +15,15 @@ function App() {
   return (
     <article className="pb-16 text-md print:text-sm source-sans-3 text-slate-800 text-pretty">
       <header className="bg-gray-100">
-        <Container className="pt-24 grid grid-cols-8 gap-8 ">
+        <Container className="pt-24">
           <div className="text-center col-span-2">
-            <img
-              className="w-40 h-40 print:w-36 print:h-36 rounded-full inline-block max-w-[unset]"
-              src={profileImage}
-              alt="Christian Naths"
-            />
+            <div className="overflow-hidden w-full rounded-full">
+              <img
+                className="w-full h-full scale-125"
+                src={profileImage}
+                alt="Photo of Christian Naths"
+              />
+            </div>
           </div>
           <div className="col-span-6">
             <h1 className="text-3xl font-bold">Christian Naths</h1>
@@ -62,7 +64,7 @@ function App() {
           </div>
         </Container>
         <svg
-          className="w-full fill-white"
+          className="w-full fill-white print:hidden"
           viewBox="0 0 1440 32"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
@@ -70,6 +72,9 @@ function App() {
           <path d="M0,18 C443,38 923,32 1440,1 L1440,32 L0,32 Z" />
         </svg>
       </header>
+
+      <hr className="hidden print:block mt-8" />
+
       <Section title="Skills">
         <p className="mt-1">
           Typescript, React, Next.js, Jest, NodeJS, Python, Ruby, PostgreSQL, NoSQL, Big
