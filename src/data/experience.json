@@ -8,7 +8,6 @@
     "location": "London, UK",
     "commuteType": "Remote",
     "highlights": [
-      "Contracted by PEI Group to support the acquisition of FundFilter",
       "Integrated key FundFilter product features and data into PEI's existing infrastructure",
       "Migrated the existing FundFilter data ingest pipeline into Databricks"
     ]
@@ -22,10 +21,9 @@
     "location": "Bend, OR, USA",
     "commuteType": "Remote",
     "highlights": [
-      "Joined a small team early in the company's life cycle (1 year)",
-      "Worked closely with the founder to build a data-driven product that was acquired by PEI Group in 2022",
+      "Improved data pipeline performance by 10×, reducing data processing time from 2.5 hours to 15 minutes",
       "Promoted to CTO and was responsible for all technical aspects of the company",
-      "Supported technical due diligence proceedings during the acquisition process"
+      "Supported technical due diligence proceedings resulting in a successful acquisition"
     ]
   },
   {
@@ -37,8 +35,8 @@
     "location": "San Francisco, CA, USA",
     "commuteType": "Remote",
     "highlights": [
-      "Built a stable, long lasting product that continues to produce revenue today with little maintenance",
-      "Implemented a Kubernetes backend that scaled to millions of page views (clients including Eminem, Celine Dion, Alyssa Milano, and Yes Theory)"
+      "Produced a stable product boasting >99.99% uptime over 6 years",
+      "Implemented a Kubernetes backend that scaled to millions of page views supporting audiences of Eminem, Celine Dion, Alyssa Milano, Yes Theory"
     ]
   },
   {
@@ -50,9 +48,8 @@
     "location": "Edmonton, Canada",
     "commuteType": "Hybrid Remote",
     "highlights": [
-      "Onboarded as a minority partner a few months into product development",
       "Built companion web application to the company's flagship mobile app",
-      "Took over the company in late 2016 and led the company through a series of pivots"
+      "Bought the company in late 2016 and led the company through a series of pivots"
     ]
   },
   {
@@ -64,8 +61,8 @@
     "location": "Edmonton, Canada",
     "commuteType": "Hybrid Remote",
     "highlights": [
-      "Joined Yardly a few weeks after its inception to build and lead a new software development team.",
-      "Designed and built Yardly's Uber-like software platform: a suite of iOS, Android, and web applications.",
+      "Designed an Uber-like service platform: a suite of iOS, Android, and web applications.",
+      "Led a small team of developers to help build the platform.",
       "Worked closely with the company founders to guide and shape the brand, business model, culture, and direction of the company."
     ]
   },
