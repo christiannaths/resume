@@ -1,4 +1,4 @@
-import { format, formatDistanceStrict } from 'date-fns';
+import { format, parse, formatDistanceStrict } from 'date-fns';
 
 export type TJob = {
   title: React.ReactNode;
@@ -71,8 +71,10 @@ export function TimelineEvent({
   showDuration,
   className = '',
 }: Props) {
-  const startDateFormatted = format(new Date(event.startDate + 'Z'), 'MMM yyyy');
-  const endDateFormatted = format(new Date(event.endDate), 'MMM yyyy');
+  const startDate = parse(event.startDate, 'yyyy-MM-dd', new Date());
+  const endDate = parse(event.endDate, 'yyyy-MM-dd', new Date());
+  const startDateFormatted = format(startDate, 'MMM yyyy');
+  const endDateFormatted = format(endDate, 'MMM yyyy');
   const duration = formatDuration(event.startDate, event.endDate);
 
   return (
