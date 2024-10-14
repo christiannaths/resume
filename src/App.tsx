@@ -16,7 +16,7 @@ function App() {
     <article className="pb-16 text-md print:text-sm source-sans-3 text-slate-800 text-pretty">
       <header className="bg-gray-100">
         <Container className="pt-24">
-          <div className="text-center col-span-2 hidden md:block">
+          <div className="text-center col-span-2 hidden md:block print:block">
             <div className="overflow-hidden w-full rounded-full">
               <img
                 className="w-full h-full scale-125"
@@ -25,30 +25,30 @@ function App() {
               />
             </div>
           </div>
-          <div className="col-span-6 p-8 md:p-0">
+          <div className="col-span-6 p-8 md:p-0 print:p-0">
             <h1 className="text-3xl font-bold">Christian Naths</h1>
             <Subtitle className="text-lg leading-none">
               Senior Software Developer
             </Subtitle>
 
-            <div className="text-sm my-5 text-gray-700 grid grid-cols-[max-content,auto] gap-x-4">
-              <div>
+            <ul className="text-sm my-5 text-gray-700 md:grid md:grid-cols-[max-content,auto] print:grid print:grid-cols-[max-content,auto] gap-x-4 list-none pl-3 ml-0 border-l md:pl-0 md:border-l-0 print:pl-0 print:border-l-0">
+              <li>
                 <a href="mailto:christiannaths@gmail.com">christiannaths@gmail.com</a>
-              </div>
-              <div>
+              </li>
+              <li>
                 <a href="https://github.com/christiannaths">
                   github.com/christiannaths
                 </a>
-              </div>
-              <div>
+              </li>
+              <li>
                 <span>Timezone: UTC-6 (+/- 2hrs)</span>
-              </div>
-              <div>
+              </li>
+              <li>
                 <a href="https://www.linkedin.com/in/christiannaths">
                   linkedin.com/in/christiannaths
                 </a>
-              </div>
-            </div>
+              </li>
+            </ul>
 
             <p className="mt-2">
               I began working professionally in web and software design & development in
