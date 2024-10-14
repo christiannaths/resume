@@ -16,7 +16,7 @@ function App() {
     <article className="pb-16 text-md print:text-sm source-sans-3 text-slate-800 text-pretty">
       <header className="bg-gray-100">
         <Container className="pt-24">
-          <div className="text-center col-span-2">
+          <div className="text-center col-span-2 hidden md:block">
             <div className="overflow-hidden w-full rounded-full">
               <img
                 className="w-full h-full scale-125"
@@ -25,7 +25,7 @@ function App() {
               />
             </div>
           </div>
-          <div className="col-span-6">
+          <div className="col-span-6 p-8 md:p-0">
             <h1 className="text-3xl font-bold">Christian Naths</h1>
             <Subtitle className="text-lg leading-none">
               Senior Software Developer
