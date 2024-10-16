@@ -1,122 +1,212 @@
+import { useMemo, useState, useEffect } from 'react';
 import { Subtitle } from './components/Subtitle';
 import { Job, type Job as JobType } from './components/Job';
 import { Section } from './components/Section';
 import { Container } from './components/Container';
 import { List } from './components/List';
 import { TimelineEvent } from './components/Timeline';
-import experienceData from './data/experience.json';
+import importedData from './data/data.json';
 import profileImage from './assets/profile.jpg';
 
 const EXPERIENCE_LIMIT = 5;
 
+function useLocation() {
+  const location = useMemo(() => {
+    return window.location;
+  }, []);
+
+  return location;
+}
+
+function useDynamicData(hash: string) {
+  const [data, setData] = useState(importedData);
+
+  useEffect(() => {
+    if (!hash) return;
+    const importData = async () => {
+      const pathPrefix = `./data/${hash.replace('#', '')}`;
+      const altData = await import(`${pathPrefix}/data.json`);
+
+      setData(altData.default);
+    };
+
+    importData();
+  }, []);
+
+  return data;
+}
+
 function App() {
-  const experience: JobType[] = experienceData.slice(0, EXPERIENCE_LIMIT);
+  // const experience: JobType[] = experienceData.slice(0, EXPERIENCE_LIMIT);
+
+  const { hash } = useLocation();
+  const data = useDynamicData(hash);
+
+  console.log(hash, data);
 
   return (
-    <article className="pb-16 text-md print:text-sm source-sans-3 text-slate-800 text-pretty">
-      <header className="bg-gray-100">
-        <Container className="pt-24">
-          <div className="text-center col-span-2 hidden md:block print:block">
-            <div className="overflow-hidden w-full rounded-full">
-              <img
-                className="w-full h-full scale-125"
-                src={profileImage}
-                alt="Photo of Christian Naths"
-              />
-            </div>
-          </div>
-          <div className="col-span-6 p-8 md:p-0 print:p-0">
-            <h1 className="text-3xl font-bold">Christian Naths</h1>
-            <Subtitle className="text-lg leading-none">
-              Senior Software Developer
-            </Subtitle>
+    <>
+      <main className="page" itemScope itemType="http://schema.org/Person">
+        <header>
+          <h1 itemProp="name">{data.name}</h1>
+          <span itemProp="jobTitle">{data.jobTitle}</span>
 
-            <ul className="text-sm my-5 text-gray-700 md:grid md:grid-cols-[max-content,auto] print:grid print:grid-cols-[max-content,auto] gap-x-4 list-none pl-3 ml-0 border-l md:pl-0 md:border-l-0 print:pl-0 print:border-l-0">
-              <li>
-                <a href="mailto:christiannaths@gmail.com">christiannaths@gmail.com</a>
-              </li>
-              <li>
-                <a href="https://github.com/christiannaths">
-                  github.com/christiannaths
-                </a>
-              </li>
-              <li>
-                <span>Timezone: UTC-6 (+/- 2hrs)</span>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/christiannaths">
-                  linkedin.com/in/christiannaths
-                </a>
-              </li>
-            </ul>
+          <ul>
+            {data.links.map(link => {
+              return (
+                <li key={link.value}>
+                  <a href={link.value} target="_blank" itemProp="url">
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </header>
 
-            <p className="mt-2">
-              I began working professionally in web and software design & development in
-              2001. Since 2015 I have focused my efforts towards helping founders of
-              early-stage startups bring their product ideas to market.
-            </p>
+        <section>
+          <h2>Technical Skills</h2>
 
-            <p className="mt-2">
-              I take pride in writing maintainable code and providing thorough and
-              helpful code reviews to keep team efforts on track and in-line with
-              company business objectives.
-            </p>
-          </div>
-        </Container>
-        <svg
-          className="w-full fill-white print:hidden"
-          viewBox="0 0 1440 32"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M0,18 C443,38 923,32 1440,1 L1440,32 L0,32 Z" />
-        </svg>
-      </header>
+          <ul>
+            <li>
+              Languages:
+              {data.skills
+                .filter(skill => skill.type === 'language')
+                .map(skill => {
+                  return (
+                    <span
+                      key={skill.type + skill.label}
+                      itemScope
+                      itemType="http://schema.org/Language"
+                    >
+                      {skill.label}{' '}
+                    </span>
+                  );
+                })}
+            </li>
 
-      <hr className="hidden print:block mt-8" />
+            <li>
+              Databases:
+              {data.skills
+                .filter(skill => skill.type === 'database')
+                .map(skill => {
+                  return <span key={skill.type + skill.label}>{skill.label} </span>;
+                })}
+            </li>
+            <li>
+              Frameworks:
+              {data.skills
+                .filter(skill => skill.type === 'framework')
+                .map(skill => {
+                  return <span key={skill.type + skill.label}>{skill.label} </span>;
+                })}
+            </li>
+            <li>
+              Tools:
+              {data.skills
+                .filter(skill => skill.type === 'tool')
+                .map(skill => {
+                  return <span key={skill.type + skill.label}>{skill.label} </span>;
+                })}
+            </li>
+          </ul>
+        </section>
 
-      <Section title="Skills">
-        <p className="mt-1">
-          Typescript, React, Next.js, Jest, NodeJS, Python, Ruby, PostgreSQL, NoSQL, Big
-          Query, Databricks, Kubernetes, Google Cloud
-        </p>
-      </Section>
-      <Section title="Experience">
-        <div className="mt-2">
-          {experience.map((job, index) => (
-            <TimelineEvent
-              key={index}
-              className="[&+*]:pt-4"
-              event={{
-                title: job.company,
-                startDate: job.startDate,
-                endDate: job.endDate,
-              }}
-              showDuration
-            >
-              <Job job={job} />
-            </TimelineEvent>
-          ))}
-        </div>
-      </Section>
-      <Section title="Education">
-        <TimelineEvent
-          className="mt-2"
-          event={{
-            title: 'Northern Alberta Institute of Technology',
-            startDate: '2007-09-05',
-            endDate: '2009-04-28',
-          }}
-        >
-          <List
-            items={[
-              <span>Digital Media Design · Diploma</span>,
-              <span>Edmonton, Canada</span>,
-            ]}
-          />
-        </TimelineEvent>
-      </Section>
-    </article>
+        <section className="experience">
+          <h2>Experience</h2>
+          <ul>
+            <li>
+              Semi-finalist in the 2015 Global Venture Labs Investment Competition,
+              <time>2015</time>
+            </li>
+            <li>
+              Teaching Assistant for four undergraduate engineering courses at CUHK,
+              <time>2012-2015</time>
+            </li>
+            <li>
+              Volunteer for the
+              <span
+                itemProp="worksFor"
+                itemScope
+                itemType="http://schema.org/Organization"
+              >
+                <span itemProp="name">
+                  Charles K Kao Foundation for Alzheimer’s Disease
+                </span>
+                ,
+              </span>
+              <time>2011</time>
+            </li>
+            <li>
+              Organizer of the 6th Information Security and Countermeasures Contest,{' '}
+              <time>2010</time>
+            </li>
+            <li>
+              Meritorious Winner in <em>Mathematical Contest In Modeling</em>,{' '}
+              <time>2009</time>
+            </li>
+          </ul>
+        </section>
+
+        <section className="education">
+          <h2>Education</h2>
+
+          <details open>
+            <summary>
+              <span
+                itemProp="alumniOf"
+                itemScope
+                itemType="http://schema.org/EducationalOrganization"
+              >
+                <span itemProp="name">Northern Alberta Institute of Technology</span>
+                <span itemProp="location" itemScope itemType="http://schema.org/Place">
+                  <span itemProp="address">
+                    <span itemProp="addressLocality">Edmonton</span>,
+                    <span itemProp="addressRegion">Alberta</span>
+                  </span>
+                </span>
+              </span>
+              <time>2007 - 2009</time>
+              <span
+                itemProp="hasCredential"
+                itemScope
+                itemType="http://schema.org/EducationalOccupationalCredential"
+              >
+                <h1 itemProp="name">Digital Media Design</h1>
+                <span itemProp="credentialCategory">Diploma</span>
+                <div
+                  itemProp="credentialCategory"
+                  itemScope
+                  itemType="https://schema.org/DefinedTerm"
+                >
+                  <meta itemProp="name" content="Certification" />
+                  <link
+                    itemProp="url"
+                    href="http://purl.org/ctdl/terms/Certification"
+                  />
+                  <div
+                    itemProp="inDefinedTermSet"
+                    itemScope
+                    itemType="https://schema.org/DefinedTermSet"
+                  >
+                    <meta
+                      itemProp="name"
+                      content="Credential Transparency Description Language"
+                    />
+                    <link itemProp="url" content="http://purl.org/ctdl/terms/" />
+                  </div>
+                </div>
+                <link
+                  itemProp="additionalType"
+                  href="http://purl.org/ctdl/terms/Certification"
+                />
+                <span itemProp="credentialCategory">Digital Media Design</span>
+              </span>
+            </summary>
+          </details>
+        </section>
+      </main>
+    </>
   );
 }
 

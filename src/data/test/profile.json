@@ -1,0 +1,32 @@
+{
+  "name": "Tsang Sung",
+  "jobTitle": "Senior Software Engineer",
+  "links": [
+    {
+      "type": "email",
+      "value": "mailto:christiannaths@gmail.com",
+      "label": "christiannaths@gmail.com"
+    },
+    { "type": "phone", "value": "tel:+502-3083-4103", "label": "+502 3083-4103" },
+    {
+      "type": "website",
+      "value": "https://christiannaths.com",
+      "label": "https://christiannaths.com"
+    },
+    {
+      "type": "linkedin",
+      "value": "https://www.linkedin.com/in/christiannaths",
+      "label": "linkedin.com/christiannaths"
+    },
+    {
+      "type": "github",
+      "value": "https://github.com/christiannaths",
+      "label": "github.com/christiannaths"
+    },
+    {
+      "type": "codepen",
+      "value": "https://codepen.io/christiannaths",
+      "label": "codepen.io/christiannaths"
+    }
+  ]
+}
