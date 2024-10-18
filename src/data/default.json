@@ -9,11 +9,6 @@
     },
     { "type": "phone", "value": "tel:+502-3083-4103", "label": "+502 3083-4103" },
     {
-      "type": "website",
-      "value": "https://christiannaths.com",
-      "label": "https://christiannaths.com"
-    },
-    {
       "type": "linkedin",
       "value": "https://www.linkedin.com/in/christiannaths",
       "label": "linkedin.com/christiannaths"
@@ -22,59 +17,29 @@
       "type": "github",
       "value": "https://github.com/christiannaths",
       "label": "github.com/christiannaths"
-    },
-    {
-      "type": "codepen",
-      "value": "https://codepen.io/christiannaths",
-      "label": "codepen.io/christiannaths"
     }
   ],
   "summary": [
-    "I began working professionally in web and software design & development in 2001. Since 2015 I have focused my efforts towards helping founders of early-stage startups bring their product ideas to market.",
-    "I take pride in writing maintainable code and providing thorough and helpful code reviews to keep team efforts on track and in-line with company business objectives."
+    "I specialize in helping early-stage startup founders transform their product ideas into market-ready solutions. My approach centers on writing focused, maintainable code, and providing insightful code reviews that keep projects aligned with both technical and business objectives."
   ],
   "skills": [
-    { "type": "framework", "label": "Apache Spark", "value": 2 },
-    { "type": "framework", "label": "Bootstrap", "value": 14 },
-    { "type": "framework", "label": "React Native", "value": 2 },
+    { "type": "language", "label": "TypeScript", "value": 5 },
+    { "type": "language", "label": "JavaScript", "value": 21 },
+    { "type": "language", "label": "Node.js", "value": 11 },
     { "type": "framework", "label": "React", "value": 9 },
-    { "type": "framework", "label": "Ruby on Rails", "value": 14 },
+    { "type": "framework", "label": "Next.js", "value": 4 },
     { "type": "framework", "label": "Tailwind CSS", "value": 2 },
     { "type": "framework", "label": "Jest", "value": 9 },
+    { "type": "framework", "label": "React Native", "value": 2 },
+    { "type": "framework", "label": "Ruby on Rails", "value": 14 },
     { "type": "language", "label": "CSS", "value": 23 },
-    { "type": "language", "label": "GraphQL", "value": 7 },
     { "type": "language", "label": "HTML", "value": 23 },
-    { "type": "language", "label": "JavaScript", "value": 21 },
-    { "type": "language", "label": "LESS", "value": 60 },
-    { "type": "language", "label": "Node.js", "value": 11 },
-    { "type": "language", "label": "NoSQL", "value": 9 },
-    { "type": "language", "label": "Python", "value": 9 },
-    { "type": "language", "label": "Ruby", "value": 14 },
-    { "type": "language", "label": "SASS", "value": 14 },
-    { "type": "language", "label": "SQL", "value": 14 },
-    { "type": "language", "label": "TypeScript", "value": 5 },
-    { "type": "library", "label": "Chai", "value": 2 },
-    { "type": "library", "label": "Cypress", "value": 7 },
-    { "type": "library", "label": "Enzyme", "value": 9 },
-    { "type": "library", "label": "Jasmine", "value": 2 },
-    { "type": "library", "label": "Material-UI", "value": 2 },
-    { "type": "library", "label": "Mocha", "value": 4 },
-    { "type": "library", "label": "Playwright", "value": 4 },
-    { "type": "library", "label": "Puppeteer", "value": 2 },
-    { "type": "library", "label": "React Testing Library", "value": 4 },
-    { "type": "platform", "label": "Databricks", "value": 2 },
-    { "type": "platform", "label": "AWS", "value": 2 },
-    { "type": "platform", "label": "Google Cloud Platform (GCP)", "value": 9 },
     { "type": "platform", "label": "Firebase", "value": 6 },
-    { "type": "platform", "label": "Heroku", "value": 12 },
-    { "type": "platform", "label": "VPS", "value": 14 },
+    { "type": "platform", "label": "Google Cloud Platform (GCP)", "value": 9 },
     { "type": "tool", "label": "CI/CD", "value": 14 },
     { "type": "tool", "label": "Docker", "value": 7 },
     { "type": "tool", "label": "Git", "value": 14 },
-    { "type": "tool", "label": "Kubernetes", "value": 7 },
-    { "type": "tool", "label": "Terraform", "value": 2 },
     { "type": "database", "label": "PostgreSQL", "value": 14 },
-    { "type": "database", "label": "MySQL", "value": 16 },
     { "type": "database", "label": "MongoDB", "value": 4 }
   ],
   "experience": [
@@ -87,22 +52,23 @@
       "location": "London, UK",
       "commuteType": "Remote",
       "highlights": [
-        "Integrated key FundFilter product features and data into PEI's existing infrastructure",
+        "Integrated key FundFilter product features into PEI's existing React application",
         "Migrated the existing FundFilter data ingest pipeline into Databricks"
       ]
     },
     {
-      "company": "FundFilter (Acquired by PEI Group - 2022)",
-      "title": "Chief Technology Officer",
+      "company": "FundFilter",
+      "title": "Lead Software Engineer",
       "employmentType": "Contract",
       "startDate": "2020-09-15",
       "endDate": "2022-09-15",
       "location": "Bend, USA",
       "commuteType": "Remote",
       "highlights": [
-        "Improved data pipeline performance by 10x, reducing data processing time from 2.5 hours to 15 minutes",
-        "Promoted to CTO and was responsible for all technical aspects of the company",
-        "Led technical due diligence proceedings resulting in a successful acquisition"
+        "Acquired by PEI Group in 2022",
+        "Improved data pipeline performance by 10x, reducing data processing time from 2.5 hours to 15 minutes.",
+        "Optimized the application data load time, improving TTL performance by 50%",
+        "Led technical due diligence proceedings resulting in a successful acquisition."
       ]
     },
     {
@@ -114,8 +80,8 @@
       "location": "San Francisco, CA, USA",
       "commuteType": "Remote",
       "highlights": [
-        "Produced a stable product boasting >99.99% uptime over 6 years",
-        "Implemented a Kubernetes backend that scaled to millions of page views supporting audiences of Eminem, Celine Dion, Alyssa Milano, Yes Theory"
+        "Produced a stable React application boasting >99.99% uptime over 6 years.",
+        "Deployed a Ruby on Rails backend with Kubernetes that scaled to millions of page views supporting audiences of Eminem, Celine Dion, Alyssa Milano, Janet Jackson, Yes Theory."
       ]
     },
     {
@@ -127,35 +93,23 @@
       "location": "Edmonton, Canada",
       "commuteType": "Hybrid Remote",
       "highlights": [
-        "Built companion web application to the company's flagship iOS app",
-        "Bought the company in late 2016 and led the company through a series of pivots"
+        "Produced a Python API capable of handling surge traffic of 10,000+ users.",
+        "Built universal components to support both React and React Native applications.",
+        "Lead a small team of data analysts to measure and improve user engagement."
       ]
     },
     {
-      "company": "Yardly - Lawn Care & Snow Removal",
-      "title": "Senior Software Developer",
+      "company": "Yardly",
+      "title": "Lead Software Engineer",
       "employmentType": "Contract",
       "startDate": "2015-12-15",
       "endDate": "2016-06-15",
       "location": "Edmonton, Canada",
       "commuteType": "Hybrid Remote",
       "highlights": [
-        "Designed an Uber-like service platform: a suite of iOS, Android, and web applications.",
-        "Led a small team of developers to help build the platform.",
+        "Designed an Uber-like service platform—a suite of iOS, Android, and web applications—allowing customers to request lawn care and snow removal services on-demand.",
+        "Led a focused team of developers to build the platform.",
         "Worked closely with the company founders to guide and shape the brand, business model, culture, and direction of the company."
-      ]
-    },
-    {
-      "company": "Northern Alberta Institute of Technology",
-      "title": "Web Design & Usability Instructor",
-      "employmentType": "Permanent Full-time",
-      "startDate": "2009-09-15",
-      "endDate": "2015-09-15",
-      "location": "Edmonton, Canada",
-      "commuteType": "In Office",
-      "highlights": [
-        "Redesigned a stale Web Design & Development curriculum to be more relevant and engaging.",
-        "Helped over 500 students find jobs in the tech industry."
       ]
     }
   ],
