@@ -1,14 +1,7 @@
 import { useMemo, useState, useEffect } from 'react';
-import { Subtitle } from './components/Subtitle';
-import { Job, type Job as JobType } from './components/Job';
-import { Section } from './components/Section';
-import { Container } from './components/Container';
-import { List } from './components/List';
-import { TimelineEvent } from './components/Timeline';
-import importedData from './data/data.json';
-import profileImage from './assets/profile.jpg';
-
-const EXPERIENCE_LIMIT = 5;
+import importedData from './data/default.json';
+import { formatTimespan } from './utils';
+import { Icon } from './components/Icons';
 
 function useLocation() {
   const location = useMemo(() => {
@@ -24,9 +17,8 @@ function useDynamicData(hash: string) {
   useEffect(() => {
     if (!hash) return;
     const importData = async () => {
-      const pathPrefix = `./data/${hash.replace('#', '')}`;
-      const altData = await import(`${pathPrefix}/data.json`);
-
+      const path = `./data/${hash.replace('#', '')}.json`;
+      const altData = await import(path);
       setData(altData.default);
     };
 
@@ -36,177 +28,118 @@ function useDynamicData(hash: string) {
   return data;
 }
 
-function App() {
-  // const experience: JobType[] = experienceData.slice(0, EXPERIENCE_LIMIT);
+const styles = {
+  pageTitle: 'text-4xl font-bold',
+  pageSubtitle: 'text-2xl italic mt-2',
+  h2: 'text-xl font-bold mt-16',
+  h3: 'text-md font-bold mt-4',
+};
 
+function App() {
   const { hash } = useLocation();
   const data = useDynamicData(hash);
 
-  console.log(hash, data);
-
   return (
-    <>
-      <main className="page" itemScope itemType="http://schema.org/Person">
-        <header>
-          <h1 itemProp="name">{data.name}</h1>
-          <span itemProp="jobTitle">{data.jobTitle}</span>
+    <main
+      itemScope
+      itemType="http://schema.org/Person"
+      className="px-4 py-16 leading-6 max-w-[8.5in] mx-auto"
+    >
+      <header className="mb-16">
+        <hgroup>
+          <h1 className={styles.pageTitle} itemProp="name">
+            {data.name}
+          </h1>
+          <p className={styles.pageSubtitle} itemProp="jobTitle">
+            {data.jobTitle}
+          </p>
+        </hgroup>
 
-          <ul>
-            {data.links.map(link => {
-              return (
-                <li key={link.value}>
-                  <a href={link.value} target="_blank" itemProp="url">
-                    {link.label}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </header>
-
-        <section>
-          <h2>Technical Skills</h2>
-
-          <ul>
-            <li>
-              Languages:
-              {data.skills
-                .filter(skill => skill.type === 'language')
-                .map(skill => {
-                  return (
-                    <span
-                      key={skill.type + skill.label}
-                      itemScope
-                      itemType="http://schema.org/Language"
-                    >
-                      {skill.label}{' '}
-                    </span>
-                  );
-                })}
-            </li>
-
-            <li>
-              Databases:
-              {data.skills
-                .filter(skill => skill.type === 'database')
-                .map(skill => {
-                  return <span key={skill.type + skill.label}>{skill.label} </span>;
-                })}
-            </li>
-            <li>
-              Frameworks:
-              {data.skills
-                .filter(skill => skill.type === 'framework')
-                .map(skill => {
-                  return <span key={skill.type + skill.label}>{skill.label} </span>;
-                })}
-            </li>
-            <li>
-              Tools:
-              {data.skills
-                .filter(skill => skill.type === 'tool')
-                .map(skill => {
-                  return <span key={skill.type + skill.label}>{skill.label} </span>;
-                })}
-            </li>
-          </ul>
-        </section>
-
-        <section className="experience">
-          <h2>Experience</h2>
-          <ul>
-            <li>
-              Semi-finalist in the 2015 Global Venture Labs Investment Competition,
-              <time>2015</time>
-            </li>
-            <li>
-              Teaching Assistant for four undergraduate engineering courses at CUHK,
-              <time>2012-2015</time>
-            </li>
-            <li>
-              Volunteer for the
-              <span
-                itemProp="worksFor"
-                itemScope
-                itemType="http://schema.org/Organization"
-              >
-                <span itemProp="name">
-                  Charles K Kao Foundation for Alzheimer’s Disease
-                </span>
-                ,
-              </span>
-              <time>2011</time>
-            </li>
-            <li>
-              Organizer of the 6th Information Security and Countermeasures Contest,{' '}
-              <time>2010</time>
-            </li>
-            <li>
-              Meritorious Winner in <em>Mathematical Contest In Modeling</em>,{' '}
-              <time>2009</time>
-            </li>
-          </ul>
-        </section>
-
-        <section className="education">
-          <h2>Education</h2>
-
-          <details open>
-            <summary>
-              <span
-                itemProp="alumniOf"
-                itemScope
-                itemType="http://schema.org/EducationalOrganization"
-              >
-                <span itemProp="name">Northern Alberta Institute of Technology</span>
-                <span itemProp="location" itemScope itemType="http://schema.org/Place">
-                  <span itemProp="address">
-                    <span itemProp="addressLocality">Edmonton</span>,
-                    <span itemProp="addressRegion">Alberta</span>
-                  </span>
-                </span>
-              </span>
-              <time>2007 - 2009</time>
-              <span
-                itemProp="hasCredential"
-                itemScope
-                itemType="http://schema.org/EducationalOccupationalCredential"
-              >
-                <h1 itemProp="name">Digital Media Design</h1>
-                <span itemProp="credentialCategory">Diploma</span>
-                <div
-                  itemProp="credentialCategory"
-                  itemScope
-                  itemType="https://schema.org/DefinedTerm"
+        <ul className="mt-4 leading-8 md:grid md:grid-cols-[max-content_max-content] md:gap-x-4 print:grid print:grid-cols-[max-content_max-content] print:gap-x-4">
+          {data.links.map(link => {
+            return (
+              <li key={link.value}>
+                <a
+                  href={link.value}
+                  target="_blank"
+                  itemProp="url"
+                  className="whitespace-nowrap"
                 >
-                  <meta itemProp="name" content="Certification" />
-                  <link
-                    itemProp="url"
-                    href="http://purl.org/ctdl/terms/Certification"
-                  />
-                  <div
-                    itemProp="inDefinedTermSet"
-                    itemScope
-                    itemType="https://schema.org/DefinedTermSet"
-                  >
-                    <meta
-                      itemProp="name"
-                      content="Credential Transparency Description Language"
-                    />
-                    <link itemProp="url" content="http://purl.org/ctdl/terms/" />
-                  </div>
-                </div>
-                <link
-                  itemProp="additionalType"
-                  href="http://purl.org/ctdl/terms/Certification"
-                />
-                <span itemProp="credentialCategory">Digital Media Design</span>
-              </span>
-            </summary>
-          </details>
-        </section>
-      </main>
-    </>
+                  <Icon className="inline-block mr-2" type={link.type} />
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </header>
+
+      <section>
+        <h2 className={styles.h2}>Profile</h2>
+        {data.summary.map((text, index) => {
+          return (
+            <p key={index} itemProp="description">
+              {text}
+            </p>
+          );
+        })}
+      </section>
+
+      <section>
+        <h2 className={styles.h2}>Technical Skills</h2>
+
+        <ul className="list-none flex flex-wrap gap-2">
+          {data.skills.map(skill => {
+            return (
+              <li
+                key={skill.type + skill.label}
+                className="border-2 rounded border-black p-2"
+              >
+                {skill.label}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      <section className="experience">
+        <h2 className={styles.h2}>Experience</h2>
+        {data.experience.map(job => {
+          return (
+            <div className="break-inside-avoid">
+              <hgroup>
+                <h3 className={styles.h3}>{job.title}</h3>
+                <p className="italic">
+                  {job.company} • {job.location}
+                </p>
+              </hgroup>
+              <p>{formatTimespan(job.startDate, job.endDate)}</p>
+              <ul className="list-disc ml-3 pl-3">
+                {job.highlights.map((highlight, index) => {
+                  return <li key={index}>{highlight}</li>;
+                })}
+              </ul>
+            </div>
+          );
+        })}
+      </section>
+
+      <section className="education">
+        <h2 className={styles.h2}>Education</h2>
+
+        {data.education.map(item => {
+          return (
+            <span key={item.institution}>
+              <h3 className={styles.h3}>{item.institution}</h3>
+              <p>
+                {item.studyType}, {item.major}
+              </p>
+              <p>{formatTimespan(item.startDate, item.endDate)}</p>
+            </span>
+          );
+        })}
+      </section>
+    </main>
   );
 }
 

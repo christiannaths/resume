@@ -19,16 +19,12 @@ type Props = {
 export function Job({ job, className = '' }: Props) {
   return (
     <div className={className}>
-      <List
-        items={[
-          <span>
-            <span className="font-medium text-gray-500">{job.title}</span>
-          </span>,
-          <span>
-            {job.location} ({job.employmentType} · {job.commuteType})
-          </span>,
-        ]}
-      />
+      <h3 className="font-bold">{job.title}</h3>
+      <address>
+        <strong>{job.company}</strong>
+        <br />
+        {job.location}
+      </address>
       <List className="list-disc ml-4" items={job.highlights} />
     </div>
   );

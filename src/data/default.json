@@ -29,7 +29,7 @@
       "label": "codepen.io/christiannaths"
     }
   ],
-  "profile": [
+  "summary": [
     "I began working professionally in web and software design & development in 2001. Since 2015 I have focused my efforts towards helping founders of early-stage startups bring their product ideas to market.",
     "I take pride in writing maintainable code and providing thorough and helpful code reviews to keep team efforts on track and in-line with company business objectives."
   ],
@@ -97,10 +97,10 @@
       "employmentType": "Contract",
       "startDate": "2020-09-15",
       "endDate": "2022-09-15",
-      "location": "Bend, OR, USA",
+      "location": "Bend, USA",
       "commuteType": "Remote",
       "highlights": [
-        "Improved data pipeline performance by 10×, reducing data processing time from 2.5 hours to 15 minutes",
+        "Improved data pipeline performance by 10x, reducing data processing time from 2.5 hours to 15 minutes",
         "Promoted to CTO and was responsible for all technical aspects of the company",
         "Led technical due diligence proceedings resulting in a successful acquisition"
       ]
@@ -153,13 +153,16 @@
       "endDate": "2015-09-15",
       "location": "Edmonton, Canada",
       "commuteType": "In Office",
-      "highlights": [""]
+      "highlights": [
+        "Redesigned a stale Web Design & Development curriculum to be more relevant and engaging.",
+        "Helped over 500 students find jobs in the tech industry."
+      ]
     }
   ],
   "education": [
     {
       "institution": "Northern Alberta Institute of Technology",
-      "area": "Computer Science",
+      "major": "Digital Media Design",
       "studyType": "Diploma",
       "startDate": "2007-09-15",
       "endDate": "2009-04-15",
