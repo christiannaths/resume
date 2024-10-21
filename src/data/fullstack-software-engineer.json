@@ -1,0 +1,125 @@
+{
+  "name": "Christian Naths",
+  "jobTitle": "Fullstack Software Engineer",
+  "links": [
+    {
+      "type": "email",
+      "value": "mailto:christiannaths@gmail.com",
+      "label": "christiannaths@gmail.com"
+    },
+    { "type": "phone", "value": "tel:+502-3083-4103", "label": "+502 3083-4103" },
+    {
+      "type": "linkedin",
+      "value": "https://www.linkedin.com/in/christiannaths",
+      "label": "linkedin.com/christiannaths"
+    },
+    {
+      "type": "github",
+      "value": "https://github.com/christiannaths",
+      "label": "github.com/christiannaths"
+    },
+    {
+      "type": "location",
+      "value": "https://maps.app.goo.gl/3N8tsXRomCs2jVso6",
+      "label": "Canada"
+    }
+  ],
+  "summary": [
+    "Hi, my name is Christian and I'm a full stack engineer. Since 2015 I've specialized in helping early-stage startup founders transform their product ideas into market-ready solutions. I love working across the entire stack, from delightfully designed React and React Native frontends, to automated CI/CD containerized deployments. My approach centers on writing focused, maintainable, typesafe systems that keep projects aligned with both technical and business objectives."
+  ],
+  "skills": [
+    { "type": "language", "label": "TypeScript", "value": 5 },
+    { "type": "language", "label": "Node.js", "value": 11 },
+    { "type": "framework", "label": "React", "value": 9 },
+    { "type": "framework", "label": "React Native", "value": 2 },
+    { "type": "framework", "label": "Next.js", "value": 4 },
+    { "type": "framework", "label": "Tailwind CSS", "value": 2 },
+    { "type": "framework", "label": "Jest", "value": 9 },
+    { "type": "platform", "label": "Google Cloud Platform (GCP)", "value": 9 },
+    { "type": "tool", "label": "CI/CD", "value": 14 },
+    { "type": "tool", "label": "Docker", "value": 7 },
+    { "type": "tool", "label": "Git", "value": 14 },
+    { "type": "database", "label": "PostgreSQL", "value": 14 }
+  ],
+  "experience": [
+    {
+      "company": "PEI Group",
+      "title": "Contract Software Engineer / Data Engineer",
+      "employmentType": "Contract",
+      "startDate": "2022-09-15",
+      "endDate": "2024-05-15",
+      "location": "London, UK",
+      "commuteType": "Remote",
+      "highlights": [
+        "Integrated key FundFilter product features into PEI's existing React application",
+        "Migrated the existing FundFilter data ingest pipeline into Databricks"
+      ]
+    },
+    {
+      "company": "FundFilter",
+      "title": "Lead Fullstack Software Engineer",
+      "employmentType": "Contract",
+      "startDate": "2020-09-15",
+      "endDate": "2022-09-15",
+      "location": "Bend, USA",
+      "commuteType": "Remote",
+      "highlights": [
+        "Acquired by PEI Group in 2022",
+        "Improved data pipeline performance by 10x, reducing data processing time from 2.5 hours to 15 minutes.",
+        "Optimized the application data load time, improving TTL performance by 50%",
+        "Led technical due diligence proceedings resulting in a successful acquisition."
+      ]
+    },
+    {
+      "company": "TapBio",
+      "title": "Senior Fullstack Software Engineer",
+      "employmentType": "Contract",
+      "startDate": "2017-09-15",
+      "endDate": "2020-09-15",
+      "location": "San Francisco, CA, USA",
+      "commuteType": "Remote",
+      "highlights": [
+        "Produced a stable React application boasting >99.99% uptime over 6 years.",
+        "Deployed a Ruby on Rails backend with Kubernetes that scaled to millions of page views supporting audiences of Eminem, Celine Dion, Alyssa Milano, Janet Jackson, Yes Theory."
+      ]
+    },
+    {
+      "company": "MicroHero Surveys",
+      "title": "Chief Technology Officer",
+      "employmentType": "Permanent Full-time",
+      "startDate": "2015-04-27",
+      "endDate": "2018-11-15",
+      "location": "Edmonton, Canada",
+      "commuteType": "Hybrid Remote",
+      "highlights": [
+        "Produced a Python API capable of handling surge traffic of 10,000+ users.",
+        "Built universal components to support both React and React Native applications.",
+        "Lead a small team of data analysts to measure and improve user engagement."
+      ]
+    },
+    {
+      "company": "Yardly",
+      "title": "Lead Fullstack Software Engineer",
+      "employmentType": "Contract",
+      "startDate": "2015-12-15",
+      "endDate": "2016-06-15",
+      "location": "Edmonton, Canada",
+      "commuteType": "Hybrid Remote",
+      "highlights": [
+        "Designed an Uber-like service platform—a suite of iOS, Android, and web applications—allowing customers to request lawn care and snow removal services on-demand.",
+        "Led a focused team of developers to build the platform.",
+        "Worked closely with the company founders to guide and shape the brand, business model, culture, and direction of the company."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Northern Alberta Institute of Technology",
+      "major": "Digital Media Design",
+      "studyType": "Diploma",
+      "startDate": "2007-09-15",
+      "endDate": "2009-04-15",
+      "gpa": "4.0"
+    }
+  ]
+}
